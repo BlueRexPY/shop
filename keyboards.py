@@ -30,62 +30,62 @@ markup_shop = InlineKeyboardMarkup().add(
 
 
 markup_elf_bar_lux = InlineKeyboardMarkup().add(
-    InlineKeyboardButton('🫐 Черника', callback_data='buy')
+    InlineKeyboardButton('🫐 Черника', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍑🥭🍍 Ананас, персик и манго ', callback_data='buy')
+    InlineKeyboardButton('🍑🥭🍍 Ананас, персик и манго ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍹 Розовый Лимонад ', callback_data='buy')
+    InlineKeyboardButton('🍹 Розовый Лимонад ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🥭 Манго ', callback_data='buy')
+    InlineKeyboardButton('🥭 Манго ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍏🍑 Яблоко с персиком ', callback_data='buy')
+    InlineKeyboardButton('🍏🍑 Яблоко с персиком ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍌🧊 Ледяной Банан ', callback_data='buy')
+    InlineKeyboardButton('🍌🧊 Ледяной Банан ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍓🍌 Клубника с Бананом ', callback_data='buy')
+    InlineKeyboardButton('🍓🍌 Клубника с Бананом ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍈 Киви, Маракуйя, Гуава', callback_data='buy')
+    InlineKeyboardButton('🍈 Киви, Маракуйя, Гуава', callback_data='city')
 ).add(
     InlineKeyboardButton('Назад ⬅️', callback_data='сatalog')
 )
 
 
 markup_elf_bar = InlineKeyboardMarkup().add(
-    InlineKeyboardButton('🫐 Черника ', callback_data='buy')
+    InlineKeyboardButton('🫐 Черника ', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍒 Вишня', callback_data='buy')
+    InlineKeyboardButton('🍒 Вишня', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍌 Банан', callback_data='buy')
+    InlineKeyboardButton('🍌 Банан', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍉 Арбуз', callback_data='buy')
+    InlineKeyboardButton('🍉 Арбуз', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍑 Персик', callback_data='buy')
+    InlineKeyboardButton('🍑 Персик', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍇 Виноград', callback_data='buy')
+    InlineKeyboardButton('🍇 Виноград', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍎 Яблоко', callback_data='buy')
+    InlineKeyboardButton('🍎 Яблоко', callback_data='city')
 ).add(
-    InlineKeyboardButton('🥭 Манго', callback_data='buy')
+    InlineKeyboardButton('🥭 Манго', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍊 Апельсин', callback_data='buy')
+    InlineKeyboardButton('🍊 Апельсин', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍈 Дыня', callback_data='buy')
+    InlineKeyboardButton('🍈 Дыня', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍓🍇 Мультифрукт', callback_data='buy')
+    InlineKeyboardButton('🍓🍇 Мультифрукт', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍍 Ананас', callback_data='buy')
+    InlineKeyboardButton('🍍 Ананас', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍋 Лимонный пирог', callback_data='buy')
+    InlineKeyboardButton('🍋 Лимонный пирог', callback_data='city')
 ).add(
-    InlineKeyboardButton('🏺 Корица', callback_data='buy')
+    InlineKeyboardButton('🏺 Корица', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍬 Жвачка', callback_data='buy')
+    InlineKeyboardButton('🍬 Жвачка', callback_data='city')
 ).add(
-    InlineKeyboardButton('🥬 Мята, хвоя и лесные ягоды', callback_data='buy')
+    InlineKeyboardButton('🥬 Мята, хвоя и лесные ягоды', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍹 Кола', callback_data='buy')
+    InlineKeyboardButton('🍹 Кола', callback_data='city')
 ).add(
-    InlineKeyboardButton('🍸 Розовый лимонад', callback_data='buy')
+    InlineKeyboardButton('🍸 Розовый лимонад', callback_data='city')
 ).add(
     InlineKeyboardButton('Назад ⬅️', callback_data='сatalog')
 )
@@ -99,4 +99,26 @@ markup_buy= InlineKeyboardMarkup().add(
 )
 markup_scam= InlineKeyboardMarkup().add(
     InlineKeyboardButton('На главную 🔥', callback_data='start')
+)
+
+markup_city = InlineKeyboardMarkup().add(
+    InlineKeyboardButton('Киев', callback_data='buy')
+).add(
+    InlineKeyboardButton('Харьков', callback_data='buy')
+).add(
+    InlineKeyboardButton('Одесса', callback_data='buy')
+).add(
+    InlineKeyboardButton('Днепр', callback_data='buy')
+).add(
+    InlineKeyboardButton('Запорожье', callback_data='buy')
+).add(
+    InlineKeyboardButton('Львов', callback_data='buy')
+).add(
+    InlineKeyboardButton('Кривой Рог', callback_data='buy')
+).add(
+    InlineKeyboardButton('Николаев', callback_data='buy')
+).add(
+    InlineKeyboardButton('Мариуполь', callback_data='buy')
+).add(
+    InlineKeyboardButton('Назад ⬅️', callback_data='сatalog')
 )

@@ -116,6 +116,11 @@ async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
 
+#city
+@dp.callback_query_handler(lambda c: c.data == 'city')
+async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
+    await bot.answer_callback_query(callback_query.id)
+    await callback_query.message.edit_text(text="🏢 Выберите ближайший город",reply_markup=kb.markup_city)
 
 #buy
 @dp.callback_query_handler(lambda c: c.data == 'buy')
