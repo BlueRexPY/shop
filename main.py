@@ -9,9 +9,8 @@ import random
 
 from config import TOKEN,MY_ID,CARD
 
-from data import VOICES,IMG,PRICE_ELF_BAR_2500,PRICE_ELF_BAR_2000,PRICE_ELF_BAR_1500,PRICE_ELF_BAR_800,PRICE_ELF_BAR_550,PRICE_ELF_BAR_LUX_1500,PRICE_ELF_BAR_LUX_800,FAQ,START
+from data import VOICES,IMG,CALLBACKS_ELF
 import keyboards as kb
-
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
@@ -51,7 +50,6 @@ async def process_callback_faq(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await callback_query.message.edit_text(text=FAQ,reply_markup=kb.markup_faq)
 
-
 @dp.callback_query_handler(lambda c: c.data == 'сatalog')
 async def process_callback_catolog(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
@@ -63,62 +61,9 @@ async def process_callback_start(callback_query: types.CallbackQuery):
     await callback_query.message.edit_text(text="🔥 Главное меню \nДля просмотра каталога - нажмите соответствующую кнопку",reply_markup=kb.markup_start)
 
 
-#elf_bar
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_lux_1500')
-async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_LUX_1500
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar_lux)
-
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_lux_800')
-async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_LUX_800
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar_lux)
-
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_2500')
-async def process_callback_elf_bar(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_2500
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
-
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_2000')
-async def process_callback_elf_bar(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_2000
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
-
-
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_1500')
-async def process_callback_elf_bar(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_1500
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
-
-
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_800')
-async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_800
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
-
-
-@dp.callback_query_handler(lambda c: c.data == 'elf_bar_550')
-async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
-    global current_price
-    current_price = PRICE_ELF_BAR_550
-    await bot.answer_callback_query(callback_query.id)
-    await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
-
 #city
 @dp.callback_query_handler(lambda c: c.data == 'city')
-async def process_callback_elf_bar_lux(callback_query: types.CallbackQuery):
+async def process_callback_city(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await callback_query.message.edit_text(text="🏢 Выберите ближайший город",reply_markup=kb.markup_city)
 
@@ -148,6 +93,20 @@ async def process_voice_command(message: types.Message):
 async def echo_message(msg: types.Message):
     print(f"{Fore.GREEN}{msg.from_user.username}:{Fore.WHITE} {msg.text}")
     #await bot.send_message(MY_ID, f"{msg.from_user.username} : {msg.text}",disable_notification=True)
+
+#elf_bar
+@dp.callback_query_handler()
+async def handler_for_buy(callback_query: types.CallbackQuery):
+    current_callback = list(callback_query.data)
+    global current_price
+    for n in range(len(CALLBACKS_ELF[0])):
+        if current_callback[0:len(current_callback)+1] == list(CALLBACKS_ELF[0][n]):
+            current_price = CALLBACKS_ELF[0][n]
+            await bot.answer_callback_query(callback_query.id)
+            if current_callback[8:11] == list("lux"):
+                await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar_lux)
+            else:
+                await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
 
 if __name__ == '__main__':
     executor.start_polling(dp)

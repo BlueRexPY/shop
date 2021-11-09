@@ -1,7 +1,7 @@
 from aiogram.types import ReplyKeyboardRemove, \
     ReplyKeyboardMarkup, KeyboardButton, \
     InlineKeyboardMarkup, InlineKeyboardButton
-from data import PRICE_ELF_BAR_2500,PRICE_ELF_BAR_2000,PRICE_ELF_BAR_1500,PRICE_ELF_BAR_800,PRICE_ELF_BAR_550,PRICE_ELF_BAR_LUX_1500,PRICE_ELF_BAR_LUX_800
+from data import CALLBACKS_ELF
 #Start
 markup_start = InlineKeyboardMarkup().add(
     InlineKeyboardButton('Каталог 🗄', callback_data='сatalog')
@@ -11,19 +11,19 @@ markup_start = InlineKeyboardMarkup().add(
 
 #shop
 markup_shop = InlineKeyboardMarkup().add(
-    InlineKeyboardButton(f'❤️ ELF BAR 2500 {PRICE_ELF_BAR_2500} грн', callback_data='elf_bar_2500')
+    InlineKeyboardButton(f'❤️ ELF BAR 2500 {CALLBACKS_ELF[1][0]} грн', callback_data='elf_bar_2500')
 ).add(
-    InlineKeyboardButton(f'🧡 ELF BAR 2000 {PRICE_ELF_BAR_2000} грн', callback_data='elf_bar_2000')
+    InlineKeyboardButton(f'🧡 ELF BAR 2000 {CALLBACKS_ELF[1][1]} грн', callback_data='elf_bar_2000')
 ).add(
-    InlineKeyboardButton(f'💛 ELF BAR 1500 {PRICE_ELF_BAR_1500} грн', callback_data='elf_bar_1500')
+    InlineKeyboardButton(f'💛 ELF BAR 1500 {CALLBACKS_ELF[1][2]} грн', callback_data='elf_bar_1500')
 ).add(
-    InlineKeyboardButton(f'💚 ELF BAR 800 {PRICE_ELF_BAR_800} грн', callback_data='elf_bar_800')
+    InlineKeyboardButton(f'💚 ELF BAR 800 {CALLBACKS_ELF[1][3]} грн', callback_data='elf_bar_800')
 ).add(
-    InlineKeyboardButton(f'💙 ELF BAR 550 {PRICE_ELF_BAR_550} грн', callback_data='elf_bar_550')
+    InlineKeyboardButton(f'💙 ELF BAR 550 {CALLBACKS_ELF[1][4]} грн', callback_data='elf_bar_550')
 ).add(
-    InlineKeyboardButton(f'💜 ELF BAR LUX 1500 {PRICE_ELF_BAR_LUX_1500} грн', callback_data='elf_bar_lux_1500')
+    InlineKeyboardButton(f'💜 ELF BAR LUX 1500 {CALLBACKS_ELF[1][5]} грн', callback_data='elf_bar_lux_1500')
 ).add(
-    InlineKeyboardButton(f'🖤 ELF BAR LUX 800 {PRICE_ELF_BAR_LUX_800} грн', callback_data='elf_bar_lux_800')
+    InlineKeyboardButton(f'🖤 ELF BAR LUX 800 {CALLBACKS_ELF[1][6]} грн', callback_data='elf_bar_lux_800')
 ).add(
     InlineKeyboardButton('Назад ⬅️', callback_data='start')
 )
