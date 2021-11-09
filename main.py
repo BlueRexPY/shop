@@ -60,7 +60,6 @@ async def process_callback_start(callback_query: types.CallbackQuery):
     await bot.answer_callback_query(callback_query.id)
     await callback_query.message.edit_text(text="🔥 Главное меню \nДля просмотра каталога - нажмите соответствующую кнопку",reply_markup=kb.markup_start)
 
-
 #city
 @dp.callback_query_handler(lambda c: c.data == 'city')
 async def process_callback_city(callback_query: types.CallbackQuery):
@@ -97,13 +96,13 @@ async def echo_message(msg: types.Message):
 #elf_bar
 @dp.callback_query_handler()
 async def handler_for_buy(callback_query: types.CallbackQuery):
-    current_callback = list(callback_query.data)
+    current_callback = (callback_query.data)
     global current_price
     for n in range(len(CALLBACKS_ELF[0])):
-        if current_callback[0:len(current_callback)+1] == list(CALLBACKS_ELF[0][n]):
-            current_price = CALLBACKS_ELF[0][n]
+        if current_callback == (CALLBACKS_ELF[0][n]):
+            current_price = CALLBACKS_ELF[1][n]
             await bot.answer_callback_query(callback_query.id)
-            if current_callback[8:11] == list("lux"):
+            if list(current_callback)[8:11] == list("lux"):
                 await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar_lux)
             else:
                 await callback_query.message.edit_text(text="🌺 Выберите Вкус",reply_markup=kb.markup_elf_bar)
